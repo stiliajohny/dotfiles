@@ -42,6 +42,7 @@
 	previousSearchDir = /home/jstilia/Documents/GitHub/
 [init]
         templateDir = ~/.githooks/templates
+	defaultBranch = main
 [githooks "autoupdate"]
         enabled = true
-	lastrun = 1616200805
+	lastrun = 1619116817
