@@ -33,16 +33,27 @@
 	hooks = !\"/home/jstilia/.githooks/bin/githooks\"
 [merge]
         tool = vimdiff
+#[githooks]
+#	installDir = /home/jstilia/.githooks
+#	runner = /home/jstilia/.githooks/release/base-template.sh
+#	cloneUrl = https://github.com/stiliajohny/githooks.git
+#	cloneBranch = master
+#        useCoreHooksPath = false
+#	previousSearchDir = /home/jstilia/Documents/GitHub/
+#[init]
+#        templateDir = ~/.githooks/templates
+#	defaultBranch = main
+#[githooks "autoupdate"]
+#        enabled = true
+#	lastrun = 1619476294
 [githooks]
+	disable = true
 	installDir = /home/jstilia/.githooks
 	runner = /home/jstilia/.githooks/release/base-template.sh
-	cloneUrl = https://github.com/stiliajohny/githooks.git
+	cloneUrl = https://github.com/rycus86/githooks.git
 	cloneBranch = master
-        useCoreHooksPath = false
-	previousSearchDir = /home/jstilia/Documents/GitHub/
+	useCoreHooksPath = false
 [init]
-        templateDir = ~/.githooks/templates
-	defaultBranch = main
+	templateDir = /home/jstilia/.githooks/templates
 [githooks "autoupdate"]
-        enabled = true
-	lastrun = 1619116817
+	enabled = true
