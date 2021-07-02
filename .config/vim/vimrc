@@ -95,6 +95,7 @@ set t_Co=256
 highlight Pmenu ctermbg=gray guibg=gray
 let mapleader = '\'
 set encoding=utf-8
+set autowrite
 
 " Directories.
 set undodir=$XDG_DATA_HOME/vim/undo
@@ -122,6 +123,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benmills/vimux'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Generic Programming Support
 Plug 'Townk/vim-autoclose'
@@ -657,7 +659,31 @@ let g:ansible_name_highlight = 'd'
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_extra_keywords_highlight = 1
 
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+" Status line types/signatures
+let g:go_auto_type_info = 1
+
+" Run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+au filetype go inoremap <buffer> . .<C-x><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

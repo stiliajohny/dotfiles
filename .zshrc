@@ -34,6 +34,8 @@ export GEM_HOME=$HOME/.gem
 mkdir -p $ZSH_CACHE
 export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 
+export sky_user_email="ioannis.stylianakos@sky.uk"
+export sky_mfa_mode="sms"
 TIMER_FORMAT='[%d]'
 
 
@@ -48,7 +50,6 @@ plugins=(
     gitignore
     helm
     httpie
-    kube-ps1
     pep8
     pip
     pyenv
@@ -81,7 +82,6 @@ plugins=(
 [ -f $XDG_CONFIG_HOME/zsh/vagrant.zsh ] && source  $XDG_CONFIG_HOME/zsh/vagrant.zsh
 [ -f $XDG_CONFIG_HOME/zsh/terraform_prompt.zsh ] && source  $XDG_CONFIG_HOME/zsh/terraform_prompt.zsh
 [ -f $XDG_CONFIG_HOME/zsh/custom_theme.zsh ] && source  $XDG_CONFIG_HOME/zsh/custom_theme.zsh
-[ -f $XDG_CONFIG_HOME/zsh/kube-ps1.sh ] && source  $XDG_CONFIG_HOME/zsh/kube-ps1.sh
 [ -f $XDG_CONFIG_HOME/zsh/kube-config.zsh ] && source  $XDG_CONFIG_HOME/zsh/kube-config.zsh
 
 # Plugin Config
@@ -146,7 +146,7 @@ ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
 PROMPT="
 ╭──${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}┈
-├──"\$(zsh_terraform)\$(kube_ps1)"┈
+├──"\$(zsh_terraform)"┈
 ╰──%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
 

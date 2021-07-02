@@ -17,14 +17,10 @@
 	hooks = !\"/home/jstilia/.githooks/bin/githooks\"
 [merge]
         tool = vimdiff
-[githooks]
-	installDir = /home/jstilia/.githooks
-	runner = /home/jstilia/.githooks/release/base-template.sh
-	cloneUrl = https://github.com/rycus86/githooks.git
-	cloneBranch = master
-	useCoreHooksPath = false
-[init]
-	templateDir = ~/.githooks/templates
-[githooks "autoupdate"]
-	enabled = true
-	lastrun = 1610211875
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
